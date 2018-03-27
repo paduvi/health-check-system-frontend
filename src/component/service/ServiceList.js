@@ -54,7 +54,7 @@ class ServiceList extends React.Component {
         oldArr.forEach(oldEle => {
             const id = oldEle.id;
             const idx = temp.findIndex(e => e.id === id);
-            if (!idx) return;
+            if (idx === -1) return;
             const [newEle] = temp.splice(idx, 1);
             if (newEle.healthy !== oldEle.healthy) {
                 diff.push(newEle);
