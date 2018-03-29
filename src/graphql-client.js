@@ -10,6 +10,23 @@ const dataIdFromObject = (result) => {
     return defaultDataIdFromObject(result);
 }
 
+// Reference: https://blog.beeaweso.me/refreshing-token-based-authentication-with-apollo-client-2-0-7d45c20dc703
+// Create customFetch function for handling re-authorization
+// This customFetch (or any fetch you pass to the link) gets uri and options as arguments. We'll use those when we actually execute a fetch.
+export const customFetch = async (uri, options) => {
+
+    // Create initial fetch, this is what would normally be executed in the link without the override
+    // The apolloHttpLink expects that whatever fetch function is used, it returns a promise.
+
+    const response = await fetch(uri, options);
+    if (response.status === 401) {
+        return window.location.reload(true);
+    }
+
+    // Here we return the initialRequest promise
+    return response;
+}
+
 const link = ApolloLink.from([
     new RetryLink(),
     new HttpLink({
@@ -24,5 +41,6 @@ const link = ApolloLink.from([
 
 export default new ApolloClient({
     link,
+    fetch: customFetch,
     cache: new InMemoryCache({dataIdFromObject})
 });

@@ -1,5 +1,7 @@
+import {customFetch} from '../graphql-client';
+
 export const countUser = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/user/count', {
+    const response = await customFetch(window['BACKEND_API'] + '/user/count', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ export const countUser = async () => {
 }
 
 export const findUserById = async (id) => {
-    const response = await fetch(window['BACKEND_API'] + '/user/findbyid/' + id, {
+    const response = await customFetch(window['BACKEND_API'] + '/user/findbyid/' + id, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ export const findUserById = async (id) => {
 }
 
 export const findAllUser = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/user/findall', {
+    const response = await customFetch(window['BACKEND_API'] + '/user/findall', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -55,7 +57,7 @@ export const findAllUser = async () => {
 }
 
 export const deleteUser = async (ids) => {
-    const response = await fetch(window['BACKEND_API'] + '/user/remove', {
+    const response = await customFetch(window['BACKEND_API'] + '/user/remove', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -76,7 +78,7 @@ export const deleteUser = async (ids) => {
 }
 
 export const findUserByName = async (name) => {
-    const response = await fetch(window['BACKEND_API'] + '/user/findbyname/' + name, {
+    const response = await customFetch(window['BACKEND_API'] + '/user/findbyname/' + name, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -96,7 +98,7 @@ export const findUserByName = async (name) => {
 }
 
 export const getDefaultUser = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/user/default', {
+    const response = await customFetch(window['BACKEND_API'] + '/user/default', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -116,7 +118,7 @@ export const getDefaultUser = async () => {
 }
 
 export const saveUser = async (service) => {
-    const response = await fetch(window['BACKEND_API'] + '/user/save', {
+    const response = await customFetch(window['BACKEND_API'] + '/user/save', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

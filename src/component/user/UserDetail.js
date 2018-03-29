@@ -91,17 +91,9 @@ class UserDetail extends React.Component {
                 <Form.Item
                     {...formItemLayout}
                     label="Name"
-                    hasFeedback
+                    style={{textAlign: 'left'}}
                 >
-                    {getFieldDecorator('name', {
-                        rules: [
-                            {required: true, message: 'Please input user\'s name!', whitespace: true},
-                            {validator: this.validateUniqueName, message: "Name has existed!"}
-                        ],
-                        initialValue: user.name
-                    })(
-                        <Input/>
-                    )}
+                    <b>{user.name}</b>
                 </Form.Item>
                 <Form.Item
                     {...formItemLayout}

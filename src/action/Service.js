@@ -1,6 +1,8 @@
+import {customFetch} from '../graphql-client';
+
 export const findAllService = async () => {
 
-    const response = await fetch(window['BACKEND_API'] + '/service/findall', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/findall', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -20,7 +22,7 @@ export const findAllService = async () => {
 }
 
 export const findServiceByName = async (name) => {
-    const response = await fetch(window['BACKEND_API'] + '/service/findbyname/' + name, {
+    const response = await customFetch(window['BACKEND_API'] + '/service/findbyname/' + name, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ export const findServiceByName = async (name) => {
 }
 
 export const findServiceById = async (id) => {
-    const response = await fetch(window['BACKEND_API'] + '/service/findbyid/' + id, {
+    const response = await customFetch(window['BACKEND_API'] + '/service/findbyid/' + id, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -60,7 +62,7 @@ export const findServiceById = async (id) => {
 }
 
 export const getDefaultService = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/service/default', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/default', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -80,7 +82,7 @@ export const getDefaultService = async () => {
 }
 
 export const saveService = async (service) => {
-    const response = await fetch(window['BACKEND_API'] + '/service/save', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/save', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -101,7 +103,7 @@ export const saveService = async (service) => {
 }
 
 export const deleteService = async (ids) => {
-    const response = await fetch(window['BACKEND_API'] + '/service/remove', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/remove', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -122,7 +124,7 @@ export const deleteService = async (ids) => {
 }
 
 export const countRunningService = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/service/count/running', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/count/running', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -142,7 +144,7 @@ export const countRunningService = async () => {
 }
 
 export const countStoppedService = async () => {
-    const response = await fetch(window['BACKEND_API'] + '/service/count/stopped', {
+    const response = await customFetch(window['BACKEND_API'] + '/service/count/stopped', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
